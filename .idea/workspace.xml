@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11aeaa00-458f-4e12-b6b0-50835b09b034" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/PressGangCCMSVisualisationClient.js" afterPath="$PROJECT_DIR$/javascript/PressGangCCMSVisualisationClient.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PressGangCCMSVisulaisationClient.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="$PROJECT_DIR$/../PressGangCCMSVisualisation/.idea/workspace.xml" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382851020470" ignored="false" />
-    <file path="/Dummy.txt" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382851013025" ignored="false" />
+    <file path="$PROJECT_DIR$/../PressGangCCMSVisualisation/.idea/workspace.xml" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382851167271" ignored="false" />
+    <file path="/Dummy.txt" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382851168030" ignored="false" />
     <file path="$PROJECT_DIR$/../PressGangCCMSVisualisation/src/main/java/org/jboss/pressgang/ccms/visualisations/GraphGenerator.java" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382850998485" ignored="false" />
     <file path="/index.html" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382845099805" ignored="false" />
     <file path="/GraphGenerator.java" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382850941169" ignored="false" />
@@ -113,7 +114,7 @@
       <file leaf-file-name="PressGangCCMSVisualisationClient.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/PressGangCCMSVisualisationClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="57" selection-start="1705" selection-end="1705" vertical-scroll-proportion="0.5970149">
+            <state line="81" column="57" selection-start="2699" selection-end="2699" vertical-scroll-proportion="0.52238804">
               <folding />
             </state>
           </provider>
@@ -211,6 +212,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PressGangCCMSVisulaisationClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PressGangCCMSVisulaisationClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -374,12 +389,16 @@
       <created>1382848788975</created>
       <updated>1382848788975</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Testing various types of algorithms">
+      <created>1382851170267</created>
+      <updated>1382851170267</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-3" width="1924" height="1087" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -399,7 +418,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24919957" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24919957" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -533,7 +552,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/PressGangCCMSVisualisationClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="57" selection-start="1705" selection-end="1705" vertical-scroll-proportion="0.5970149">
+        <state line="81" column="57" selection-start="2699" selection-end="2699" vertical-scroll-proportion="0.52238804">
           <folding />
         </state>
       </provider>
