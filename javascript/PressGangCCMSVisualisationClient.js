@@ -45,7 +45,8 @@ jQuery(window).ready(function() {
                             z: Number(topicDetails[3]),
                             size: Number(topicDetails[4]),
                             groupingProperty: "products",   // The property in the database that identifies the various groups this vert belongs to
-                            database: null                  // The database that is used to look up additional data relating to this vert
+                            database: topicDatabase,        // The database that is used to look up additional data relating to this vert
+							collider: null
                         }
 						topicsGraph.push(topic);
 						
@@ -199,6 +200,14 @@ function mouseMove(event) {
         selected.className = "selected";
         selected.id = "selected";
         var selectedText = "Topic ID: " + closestCollision.topic.id;
+		
+		if (closestCollision.topic.database[closestCollision.topic.id]) {
+			selectedText += " Products:";
+			var databaseEntry = closestCollision.topic.database[closestCollision.topic.id];
+			for (var productIndex = 0, productCount = databaseEntry[closestCollision.topic.groupingProperty].length; productIndex < productCount; ++productIndex) {
+				selectedText += " " + databaseEntry[closestCollision.topic.groupingProperty][productIndex];
+			}
+		}
 
         selected.innerHTML = selectedText;
         document.body.appendChild(selected);
