@@ -266,8 +266,9 @@ function createParticles() {
                     pY = displayedGraph[p].y + displayedGraph.yOffset,
                     pZ = displayedGraph[p].z + displayedGraph.zOffset,
                     particle = new THREE.Vector3(pX, pY, pZ);
-
-                values_size[ p % maxVerts ] = 50;// + (10 * displayedTopics[p].size);
+					
+                values_size[ p % maxVerts ] = 50 * (displayedGraph[p].database[displayedGraph[p].id] ? 
+					displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty].length : 1);
 
                 var sphereCollider = new THREE.Sphere(particle, 10);
                 sphereCollider.particle = particle;
