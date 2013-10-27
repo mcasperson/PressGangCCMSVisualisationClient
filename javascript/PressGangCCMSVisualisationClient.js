@@ -38,7 +38,7 @@ jQuery(window).ready(function() {
                 if (lines[lineIndex].lenth != 0 && lines[lineIndex].substr(0, 1) != "#") {
                     var topicDetails = lines[lineIndex].split("\t");
                     if (topicDetails.length == 8) {
-                        topicsGraph.push({
+                        var topic = {
                             id: topicDetails[5],
                             x: Number(topicDetails[1]),
                             y: Number(topicDetails[2]),
@@ -46,10 +46,40 @@ jQuery(window).ready(function() {
                             size: Number(topicDetails[4]),
                             groupingProperty: "products",   // The property in the database that identifies the various groups this vert belongs to
                             database: null                  // The database that is used to look up additional data relating to this vert
-                        });
+                        }
+						topicsGraph.push(topic);
+						
+						// Make a note of the minimum and maximum values so we can recentre.
+						if (!topicsGraph.minX || topic.x < topicsGraph.minX) {
+							topicsGraph.minX = topic.x;
+						}
+						
+						if (!topicsGraph.maxX || topic.x > topicsGraph.maxX) {
+							topicsGraph.maxX = topic.x;
+						}
+						
+						if (!topicsGraph.minY || topic.y < topicsGraph.minY) {
+							topicsGraph.minY = topic.y;
+						}
+						
+						if (!topicsGraph.maxY || topic.y > topicsGraph.maxY) {
+							topicsGraph.maxY = topic.y;
+						}
+						
+						if (!topicsGraph.minZ || topic.z < topicsGraph.minZ) {
+							topicsGraph.minZ = topic.z;
+						}
+						
+						if (!topicsGraph.maxZ || topic.z > topicsGraph.maxZ) {
+							topicsGraph.maxZ = topic.z;
+						}
                     }
                 }
             }
+			
+			topicsGraph.xOffset = -topicsGraph.minX - (topicsGraph.maxX - topicsGraph.minX) / 2;
+			topicsGraph.yOffset = -topicsGraph.minY - (topicsGraph.maxY - topicsGraph.minY) / 2;
+			topicsGraph.zOffset = -topicsGraph.minZ - (topicsGraph.maxZ - topicsGraph.minZ) / 2;
 
             init();
             animate();
@@ -214,9 +244,9 @@ function createParticles() {
             //for(var p = 0; p < particleCount; p++) {
             for (var p = vertexIndex; p < (vertexIndex + maxVerts < particleCount ? vertexIndex + maxVerts : particleCount); ++p) {
 
-                var pX = displayedGraph[p].x,
-                    pY = displayedGraph[p].y,
-                    pZ = displayedGraph[p].z,
+                var pX = displayedGraph[p].x + displayedGraph.xOffset,
+                    pY = displayedGraph[p].y + displayedGraph.yOffset,
+                    pZ = displayedGraph[p].z + displayedGraph.zOffset,
                     particle = new THREE.Vector3(pX, pY, pZ);
 
                 values_size[ p % maxVerts ] = 50;// + (10 * displayedTopics[p].size);
@@ -227,7 +257,7 @@ function createParticles() {
                 colliders.push(sphereCollider);
 
                 values_color[ p % maxVerts ] = new THREE.Color();
-                values_color[ p % maxVerts ].setRGB(32, 32, 32);
+                values_color[ p % maxVerts ].setRGB(2, 4, 8);
 
                 // add it to the geometry
                 particles.vertices.push(particle);
