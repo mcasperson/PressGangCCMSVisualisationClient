@@ -1,5 +1,3 @@
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-
 var container, stats;
 
 var camera, scene, renderer;
@@ -28,7 +26,9 @@ var colliders;
 
 var projector = new THREE.Projector();
 
-jQuery(window).onready(function() {
+jQuery(window).ready(function() {
+    if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
     jQuery.ajax({
         dataType: "text",
         url: "topics.rsf.lay",
@@ -38,7 +38,15 @@ jQuery(window).onready(function() {
                 if (lines[lineIndex].lenth != 0 && lines[lineIndex].substr(0, 1) != "#") {
                     var topicDetails = lines[lineIndex].split("\t");
                     if (topicDetails.length == 8) {
-                        topicsGraph.push({id: topicDetails[5], x: Number(topicDetails[1]), y: Number(topicDetails[2]), z: Number(topicDetails[3]), size: Number(topicDetails[4])});
+                        topicsGraph.push({
+                            id: topicDetails[5],
+                            x: Number(topicDetails[1]),
+                            y: Number(topicDetails[2]),
+                            z: Number(topicDetails[3]),
+                            size: Number(topicDetails[4]),
+                            groupingProperty: "products",   // The property in the database that identifies the various groups this vert belongs to
+                            database: null                  // The database that is used to look up additional data relating to this vert
+                        });
                     }
                 }
             }
