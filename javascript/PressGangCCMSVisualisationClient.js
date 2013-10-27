@@ -276,18 +276,28 @@ function createParticles() {
 
                 values_color[ p % maxVerts ] = new THREE.Color();
                 
+				// create a colour for the particle based on the product name. 
+				// this allows us to have different colours for different products without
+				// having to actually map colours to products manually.
 				if (displayedGraph[p].database[displayedGraph[p].id]) {
-					var productName = displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty][0];
-					var hash = hashCode(productName);
-					var mask = parseInt("11111111", 2);
 					
-					var red = (hash & mask) / mask;
-					hash = hash << 2;
-					var green = (hash & mask) / mask;
-					hash = hash << 2;
-					var blue = (hash & mask) / mask;
+					var products = displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty];
 					
-					values_color[ p % maxVerts ].setRGB(red, green, blue);
+					var red = 0, green = 0, blue = 0;
+					
+					for (var productIndex = 0, productCount = products.length; productIndex < productCount; ++productIndex) {					
+						var productName = products[productIndex];
+						var hash = hashCode(productName);
+						var mask = parseInt("11111111", 2);
+						
+						red += (hash & mask) / mask;
+						hash = hash << 2;
+						green += (hash & mask) / mask;
+						hash = hash << 2;
+						blue += (hash & mask) / mask;
+					}
+					
+					values_color[ p % maxVerts ].setRGB(red / productCount, green / productCount, blue / productCount);
 				} else {
 					values_color[ p % maxVerts ].setRGB(2, 4, 8);
 				}
