@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PressGang Visualization</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <script type="application/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <style>
+            body {
+                color: #cccccc;
+                font-family:sans-serif;
+                font-size:13px;
+                text-align:center;
+
+                background-color: #050505;
+                margin: 0px;
+                overflow: hidden;
+            }
+
+            #info {
+                position: absolute;
+                top: 0px; width: 100%;
+                padding: 5px;
+            }
+
+            a {
+
+                color: #0080ff;
+            }
+
+            .productTable {
+                position: absolute;
+                top: 8px;
+                left: 8px;
+                bottom: 8px;
+                overflow-y: scroll;
+            }
+
+            .filter {
+                position: absolute;
+                right: 8px;
+                top: 40px;
+            }
+
+            .reset {
+                position: absolute;
+                right: 8px;
+                top: 8px;
+            }
+
+            .selected {
+                position: absolute;
+                right: 8px;
+                bottom: 8px;
+                max-width: 50%;
+                text-align: left;
+            }
+
+        </style>
+
+        <script src="javascript/three.min.js"></script>
+        <script src="javascript/Detector.js"></script>
+        <script src="javascript/TrackballControls.js"></script>
+        <script src="graphDatabase.js"></script>
+        <script type="x-shader/x-vertex" id="vertexshader">
+
+            uniform float amplitude;
+            attribute float size;
+            attribute vec3 customColor;
+
+            varying vec3 vColor;
+
+            void main() {
+
+            vColor = customColor;
+
+            vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+
+            //gl_PointSize = size;
+            gl_PointSize = size * ( 300.0 / length( mvPosition.xyz ) );
+
+            gl_Position = projectionMatrix * mvPosition;
+
+            }
+
+        </script>
+
+        <script type="x-shader/x-fragment" id="fragmentshader">
+
+            uniform vec3 color;
+            uniform sampler2D texture;
+
+            varying vec3 vColor;
+
+            void main() {
+
+            gl_FragColor = vec4( color * vColor, 1.0 );
+            gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <button type="button" class="reset" onclick="controls.reset()">Reset Camera</button>
+        <div id="table" class="productTable"></div>
+        <div id="container"></div>
+
+
+
+
+    </body>
+</html>
