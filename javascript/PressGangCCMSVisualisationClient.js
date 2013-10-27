@@ -31,7 +31,7 @@ jQuery(window).ready(function() {
 
     jQuery.ajax({
         dataType: "text",
-        url: "topics.rsf.lay",
+        url: "topics.lay",
         success: function(topicData) {
             var lines = topicData.split("\n");
             for (var lineIndex = 0, lineCount = lines.length; lineIndex < lineCount; ++lineIndex) {
@@ -127,7 +127,6 @@ function animate() {
 }
 
 function render() {
-    listProductsInFrustum();
     renderer.render( scene, camera );
 }
 
