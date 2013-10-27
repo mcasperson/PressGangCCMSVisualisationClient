@@ -26,6 +26,10 @@ var colliders;
 
 var projector = new THREE.Projector();
 
+function hashCode(s) {
+  return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
+}
+
 jQuery(window).ready(function() {
     if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
@@ -201,12 +205,17 @@ function mouseMove(event) {
         selected.id = "selected";
         var selectedText = "Topic ID: " + closestCollision.topic.id;
 		
-		if (closestCollision.topic.database[closestCollision.topic.id]) {
-			selectedText += " Products:";
+		if (closestCollision.topic.database[closestCollision.topic.id]) {			
 			var databaseEntry = closestCollision.topic.database[closestCollision.topic.id];
+			var products = "";
 			for (var productIndex = 0, productCount = databaseEntry[closestCollision.topic.groupingProperty].length; productIndex < productCount; ++productIndex) {
-				selectedText += " " + databaseEntry[closestCollision.topic.groupingProperty][productIndex];
+				if (products.length != 0) {
+					products += ", ";
+				}
+				products += " " + databaseEntry[closestCollision.topic.groupingProperty][productIndex];
 			}
+			
+			selectedText += " Products: " + products;
 		}
 
         selected.innerHTML = selectedText;
@@ -266,7 +275,24 @@ function createParticles() {
                 colliders.push(sphereCollider);
 
                 values_color[ p % maxVerts ] = new THREE.Color();
-                values_color[ p % maxVerts ].setRGB(2, 4, 8);
+                
+				if (displayedGraph[p].database[displayedGraph[p].id]) {
+					var productName = displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty][0];
+					var hash = hashCode(productName);
+					var mask = parseInt("11111111", 2);
+					
+					var red = (hash & mask) / mask;
+					hash = hash << 2;
+					var green = (hash & mask) / mask;
+					hash = hash << 2;
+					var blue = (hash & mask) / mask;
+					
+					values_color[ p % maxVerts ].setRGB(red, green, blue);
+				} else {
+					values_color[ p % maxVerts ].setRGB(2, 4, 8);
+				}
+				
+				
 
                 // add it to the geometry
                 particles.vertices.push(particle);
