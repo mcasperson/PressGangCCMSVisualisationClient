@@ -312,7 +312,7 @@ function createParticles() {
                     sphereCollider.topic = displayedGraph[p];
                     colliders.push(sphereCollider);
 
-                    values_color[ p % maxVerts ] = new THREE.Color();
+                    values_color[values_color.length] = new THREE.Color();
 
                     // create a colour for the particle based on the product name.
                     // this allows us to have different colours for different products without
@@ -335,9 +335,9 @@ function createParticles() {
                             blue += (hash & mask) / mask;
                         }
 
-                        values_color[ p % maxVerts ].setRGB(red / productCount, green / productCount, blue / productCount);
+                        values_color[values_color.length].setRGB(red / productCount, green / productCount, blue / productCount);
                     } else {
-                        values_color[ p % maxVerts ].setRGB(2, 4, 8);
+                        values_color[values_color.length].setRGB(2, 4, 8);
                     }
 
                     // add it to the geometry
