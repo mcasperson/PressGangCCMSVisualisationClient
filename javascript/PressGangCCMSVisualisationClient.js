@@ -342,7 +342,7 @@ function createParticles() {
                         values_color[values_color.length - 1].setRGB(2, 4, 8);
                     }
                 } else {
-                    values_color[values_color.length - 1].setRGB(0.25, 0.25, 0.25);
+                    values_color[values_color.length - 1].setRGB(0.01, 0.01, 0.01);
                 }
 
                 // add it to the geometry
