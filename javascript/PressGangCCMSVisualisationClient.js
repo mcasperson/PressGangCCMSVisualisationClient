@@ -297,7 +297,8 @@ function createParticles() {
             for (var p = vertexIndex; p < (vertexIndex + maxVerts < particleCount ? vertexIndex + maxVerts : particleCount); ++p) {
 
                 if (productFilter == null ||
-                    (displayedGraph[p].database[displayedGraph[p].id] && jQuery(productFilter, displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty]) != -1)) {
+                    (displayedGraph[p].database[displayedGraph[p].id] &&
+                        jQuery.inArray(productFilter, displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty]) != -1)) {
 
                     var pX = displayedGraph[p].x + displayedGraph.xOffset,
                         pY = displayedGraph[p].y + displayedGraph.yOffset,
