@@ -108,6 +108,9 @@ function initFilter() {
         }
     }
 
+    products.sort();
+
+    jQuery("#filter").append('<option></option>');
     for (var productIndex = 0, productCount = products.length; productIndex < productCount; ++productIndex) {
         jQuery("#filter").append('<option>' + products[productIndex] + '</option>');
     }
@@ -116,6 +119,9 @@ function initFilter() {
 function filter() {
     var filter = jQuery('#filter');
     productFilter = filter.val();
+    if (productFilter == "") {
+        productFilter = null;
+    }
 }
 
 function init() {
@@ -250,6 +256,11 @@ function mouseMove(event) {
 }
 
 function createParticles() {
+
+    for (var particleSystemIndex = 0, particleSystemCount = particleSystems.length; particleSystemIndex < particleSystemCount; ++particleSystemIndex) {
+        scene.remove(particleSystems[particleSystemIndex]);
+    }
+
     var particleCount = displayedGraph.length;
 
     // Reset the colliders
@@ -288,49 +299,53 @@ function createParticles() {
             //for(var p = 0; p < particleCount; p++) {
             for (var p = vertexIndex; p < (vertexIndex + maxVerts < particleCount ? vertexIndex + maxVerts : particleCount); ++p) {
 
-                var pX = displayedGraph[p].x + displayedGraph.xOffset,
-                    pY = displayedGraph[p].y + displayedGraph.yOffset,
-                    pZ = displayedGraph[p].z + displayedGraph.zOffset,
-                    particle = new THREE.Vector3(pX, pY, pZ);
-					
-                values_size[ p % maxVerts ] = 50 * (displayedGraph[p].database[displayedGraph[p].id] ? 
-					displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty].length : 1);
+                if (productFilter == null ||
+                    (displayedGraph[p].database[displayedGraph[p].id] && jQuery(productFilter, displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty]) != -1)) {
 
-                var sphereCollider = new THREE.Sphere(particle, 10);
-                sphereCollider.particle = particle;
-                sphereCollider.topic = displayedGraph[p];
-                colliders.push(sphereCollider);
+                    var pX = displayedGraph[p].x + displayedGraph.xOffset,
+                        pY = displayedGraph[p].y + displayedGraph.yOffset,
+                        pZ = displayedGraph[p].z + displayedGraph.zOffset,
+                        particle = new THREE.Vector3(pX, pY, pZ);
 
-                values_color[ p % maxVerts ] = new THREE.Color();
-                
-				// create a colour for the particle based on the product name. 
-				// this allows us to have different colours for different products without
-				// having to actually map colours to products manually.
-				if (displayedGraph[p].database[displayedGraph[p].id]) {
-					
-					var products = displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty];
-					
-					var red = 0, green = 0, blue = 0;
-					
-					for (var productIndex = 0, productCount = products.length; productIndex < productCount; ++productIndex) {					
-						var productName = products[productIndex];
-						var hash = hashCode(productName);
-						var mask = parseInt("11111111", 2);
-						
-						red += (hash & mask) / mask;
-						hash = hash << 2;
-						green += (hash & mask) / mask;
-						hash = hash << 2;
-						blue += (hash & mask) / mask;
-					}
-					
-					values_color[ p % maxVerts ].setRGB(red / productCount, green / productCount, blue / productCount);
-				} else {
-					values_color[ p % maxVerts ].setRGB(2, 4, 8);
-				}
+                    values_size[ p % maxVerts ] = 50 * (displayedGraph[p].database[displayedGraph[p].id] ?
+                        displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty].length : 1);
 
-                // add it to the geometry
-                particles.vertices.push(particle);
+                    var sphereCollider = new THREE.Sphere(particle, 10);
+                    sphereCollider.particle = particle;
+                    sphereCollider.topic = displayedGraph[p];
+                    colliders.push(sphereCollider);
+
+                    values_color[ p % maxVerts ] = new THREE.Color();
+
+                    // create a colour for the particle based on the product name.
+                    // this allows us to have different colours for different products without
+                    // having to actually map colours to products manually.
+                    if (displayedGraph[p].database[displayedGraph[p].id]) {
+
+                        var products = displayedGraph[p].database[displayedGraph[p].id][displayedGraph[p].groupingProperty];
+
+                        var red = 0, green = 0, blue = 0;
+
+                        for (var productIndex = 0, productCount = products.length; productIndex < productCount; ++productIndex) {
+                            var productName = products[productIndex];
+                            var hash = hashCode(productName);
+                            var mask = parseInt("11111111", 2);
+
+                            red += (hash & mask) / mask;
+                            hash = hash << 2;
+                            green += (hash & mask) / mask;
+                            hash = hash << 2;
+                            blue += (hash & mask) / mask;
+                        }
+
+                        values_color[ p % maxVerts ].setRGB(red / productCount, green / productCount, blue / productCount);
+                    } else {
+                        values_color[ p % maxVerts ].setRGB(2, 4, 8);
+                    }
+
+                    // add it to the geometry
+                    particles.vertices.push(particle);
+                }
             }
 
             particles.computeBoundingSphere();
