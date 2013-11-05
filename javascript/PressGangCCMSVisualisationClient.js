@@ -10,6 +10,8 @@ var mesh;
  */
 var topicsGraph = [];
 
+var products = [];
+
 /**
  * The currently displayed graph
  * @type {Array}
@@ -23,6 +25,10 @@ var particleSystems;
  * A collection of colliders that map to the verts in displayedGraph
  */
 var colliders;
+/**
+ * The selected product filter
+ */
+var productFilter = null;
 
 var projector = new THREE.Projector();
 
@@ -88,9 +94,29 @@ jQuery(window).ready(function() {
 
             init();
             animate();
+            initFilter();
         }
     });
 });
+
+function initFilter() {
+    for (var topicId in topicDatabase) {
+        for (var productIndex = 0, productCount = topicDatabase[topicId].products.length; productIndex < productCount; ++productIndex) {
+            if (jQuery.inArray(topicDatabase[topicId].products[productIndex], products) == -1) {
+                products.push(topicDatabase[topicId].products[productIndex]);
+            }
+        }
+    }
+
+    for (var productIndex = 0, productCount = products.length; productIndex < productCount; ++productIndex) {
+        jQuery("#filter").append('<option>' + products[productIndex] + '</option>');
+    }
+}
+
+function filter() {
+    var filter = jQuery('#filter');
+    productFilter = filter.val();
+}
 
 function init() {
 
@@ -302,8 +328,6 @@ function createParticles() {
 				} else {
 					values_color[ p % maxVerts ].setRGB(2, 4, 8);
 				}
-				
-				
 
                 // add it to the geometry
                 particles.vertices.push(particle);

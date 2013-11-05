@@ -48,6 +48,12 @@
                 top: 8px;
             }
 
+            .filter {
+                position: absolute;
+                right: 8px;
+                top: 32px;
+            }
+
             .selected {
                 position: absolute;
                 right: 8px;
@@ -104,6 +110,7 @@
     </head>
     <body>
         <button type="button" class="reset" onclick="controls.reset()">Reset Camera</button>
+        <select id="filter" class="filter" onchange="javascript:filter()"></select>
         <div id="container"></div>
 
     </body>
