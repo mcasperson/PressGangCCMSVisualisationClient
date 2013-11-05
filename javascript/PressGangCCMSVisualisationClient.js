@@ -122,6 +122,7 @@ function filter() {
     if (productFilter == "") {
         productFilter = null;
     }
+    createParticles();
 }
 
 function init() {
