@@ -8,13 +8,13 @@
     <ignored path="PressGangCCMSVisulaisationClient.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$PROJECT_DIR$/../PressGangCCMSVisualisation/.idea/workspace.xml" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382845405445" ignored="false" />
-    <file path="/Dummy.txt" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1383638063475" ignored="false" />
+    <file path="/Dummy.txt" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1383638160260" ignored="false" />
     <file path="$PROJECT_DIR$/../PressGangCCMSVisualisation/src/main/java/org/jboss/pressgang/ccms/visualisations/GraphGenerator.java" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382844270725" ignored="false" />
     <file path="/index.html" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1383636660326" ignored="false" />
     <file path="/GraphGenerator.java" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382843770055" ignored="false" />
     <file path="$PROJECT_DIR$/../PressGangCCMSVisualisation/src/main/java/ccvisu/Options.java" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382842940743" ignored="false" />
     <file path="/Options.java" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382842939959" ignored="false" />
-    <file path="/PressGangCCMSVisualisationClient.js" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1383638152127" ignored="false" />
+    <file path="/PressGangCCMSVisualisationClient.js" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1383638299578" ignored="false" />
     <file path="/a.dummy" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382843343274" ignored="false" />
     <file path="/Detector.js" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382845249203" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -107,7 +107,7 @@
       <file leaf-file-name="PressGangCCMSVisualisationClient.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/PressGangCCMSVisualisationClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="300" column="24" selection-start="9754" selection-end="9754" vertical-scroll-proportion="0.13682093">
+            <state line="291" column="27" selection-start="9274" selection-end="9285" vertical-scroll-proportion="0.015090543">
               <folding />
             </state>
           </provider>
@@ -390,7 +390,11 @@
       <created>1383638065936</created>
       <updated>1383638065936</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Working on adding filter">
+      <created>1383638162129</created>
+      <updated>1383638162129</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -429,8 +433,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <value>
         <are-packages-shown value="false" />
@@ -580,7 +584,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/PressGangCCMSVisualisationClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="300" column="24" selection-start="9754" selection-end="9754" vertical-scroll-proportion="0.13682093">
+        <state line="291" column="27" selection-start="9274" selection-end="9285" vertical-scroll-proportion="0.015090543">
           <folding />
         </state>
       </provider>
