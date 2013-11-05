@@ -257,8 +257,10 @@ function mouseMove(event) {
 
 function createParticles() {
 
-    for (var particleSystemIndex = 0, particleSystemCount = particleSystems.length; particleSystemIndex < particleSystemCount; ++particleSystemIndex) {
-        scene.remove(particleSystems[particleSystemIndex]);
+    if (particleSystems) {
+        for (var particleSystemIndex = 0, particleSystemCount = particleSystems.length; particleSystemIndex < particleSystemCount; ++particleSystemIndex) {
+            scene.remove(particleSystems[particleSystemIndex]);
+        }
     }
 
     var particleCount = displayedGraph.length;
