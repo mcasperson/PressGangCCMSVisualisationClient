@@ -335,9 +335,9 @@ function createParticles() {
                             blue += (hash & mask) / mask;
                         }
 
-                        values_color[values_color.length].setRGB(red / productCount, green / productCount, blue / productCount);
+                        values_color[values_color.length - 1].setRGB(red / productCount, green / productCount, blue / productCount);
                     } else {
-                        values_color[values_color.length].setRGB(2, 4, 8);
+                        values_color[values_color.length - 1].setRGB(2, 4, 8);
                     }
 
                     // add it to the geometry
