@@ -132,8 +132,6 @@ function init() {
     camera = new THREE.PerspectiveCamera( 27, window.innerWidth / window.innerHeight, 5, 100000 );
     camera.position.z = 7500;
 
-    scene = new THREE.Scene();
-
     uniforms = {
 
         amplitude: { type: "f", value: 1.0 },
@@ -258,11 +256,7 @@ function mouseMove(event) {
 
 function createParticles() {
 
-    if (particleSystems) {
-        for (var particleSystemIndex = 0, particleSystemCount = particleSystems.length; particleSystemIndex < particleSystemCount; ++particleSystemIndex) {
-            scene.remove(particleSystems[particleSystemIndex]);
-        }
-    }
+    scene = new THREE.Scene();
 
     var particleCount = displayedGraph.length;
 
