@@ -8,7 +8,7 @@
     <ignored path="PressGangCCMSVisulaisationClient.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$PROJECT_DIR$/../PressGangCCMSVisualisation/.idea/workspace.xml" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382845405445" ignored="false" />
-    <file path="/Dummy.txt" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1383638417959" ignored="false" />
+    <file path="/Dummy.txt" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1383638486363" ignored="false" />
     <file path="$PROJECT_DIR$/../PressGangCCMSVisualisation/src/main/java/org/jboss/pressgang/ccms/visualisations/GraphGenerator.java" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382844270725" ignored="false" />
     <file path="/index.html" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1383636660326" ignored="false" />
     <file path="/GraphGenerator.java" changelist="11aeaa00-458f-4e12-b6b0-50835b09b034" time="1382843770055" ignored="false" />
@@ -107,7 +107,7 @@
       <file leaf-file-name="PressGangCCMSVisualisationClient.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/PressGangCCMSVisualisationClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="344" column="75" selection-start="12211" selection-end="12211" vertical-scroll-proportion="0.7447865">
+            <state line="344" column="81" selection-start="12217" selection-end="12217" vertical-scroll-proportion="0.7447865">
               <folding />
             </state>
           </provider>
@@ -402,7 +402,11 @@
       <created>1383638418791</created>
       <updated>1383638418791</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Working on adding filter">
+      <created>1383638487305</created>
+      <updated>1383638487305</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -592,7 +596,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/PressGangCCMSVisualisationClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="344" column="75" selection-start="12211" selection-end="12211" vertical-scroll-proportion="0.7447865">
+        <state line="344" column="81" selection-start="12217" selection-end="12217" vertical-scroll-proportion="0.7447865">
           <folding />
         </state>
       </provider>
